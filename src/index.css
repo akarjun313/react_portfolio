@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&family=Roboto+Mono:wght@100..700&display=swap');
 
 
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px ;
+}
+
 :root{
   --bg-red: #ef412d;
   --my-black: black;

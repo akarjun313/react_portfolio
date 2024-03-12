@@ -3,9 +3,20 @@ import pageLogo from '../assets/logo01.png'
 import styled from 'styled-components'
 
 export default function Navbar() {
+
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 0) {
+      navbar.classList.add('scrolled')
+    } else {
+      navbar.classList.remove('scrolled')
+    }
+  });
+
   return (
     <>
-      <Wrapper>
+      <Container>
+      <Wrapper id='navbar'>
         <a href="#home"><img src={pageLogo} alt="my_logo" className='mainLogo'/></a>
 
         <div className='navDiv'>
@@ -15,18 +26,30 @@ export default function Navbar() {
           <NavButton href='#contact'>CONTACT</NavButton>  
         </div>
       </Wrapper>
+      </Container>
 
       
     </>
   )
 }
 
+const Container = styled.div`
+  background-color: var(--bg-red);
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+`;
+
 const Wrapper = styled.div`
   width: 100%;
   height: 100px;
   padding: 0 50px;
   display: flex;
-  background-color: var(--bg-red);
+  transition: 0.5s, background-position 0s;
+  background: linear-gradient(to right, var(--my-white) , var(--my-white)) var(--v,100%) / var(--v,0)no-repeat !important; 
+  
 `;
 
 const NavButton = styled.a`
